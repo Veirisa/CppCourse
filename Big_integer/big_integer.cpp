@@ -211,6 +211,7 @@ big_integer& big_integer::operator /= (big_integer const& rhs)
 	scale = BASE / (rhs.digits[n - 1] + 1);
 	if (scale > 1) {
 		*this *= (big_integer)scale;
+		digits.resize(digits.size() + 1);
 		saverhs *= (big_integer)scale;
 	}
 	for (vJ = m, uJ = n + vJ; vJ >= 0; --vJ, --uJ) {
