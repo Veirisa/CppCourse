@@ -271,7 +271,6 @@ big_integer& big_integer::operator /= (big_integer const& rhs)
 			digits[vJ + i] = (uint32_t)(digits[vJ + i] + carry - BASE);
 		}
 	}
-	clear();
 	ans.clear();
 	return *this = ans;
 }
