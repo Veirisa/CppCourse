@@ -200,7 +200,6 @@ big_integer& big_integer::operator /= (big_integer const& rhs)
 	big_integer ans(0);
 	int64_t n = rhs.digits.size();
 	int64_t m = digits.size() - n;
-	digits.resize(digits.size() + 1);
 	ans.digits.resize(m + 1);
 	ans.sign = sign * rhs.sign;
 	big_integer saverhs = rhs;
@@ -211,9 +210,9 @@ big_integer& big_integer::operator /= (big_integer const& rhs)
 	scale = BASE / (rhs.digits[n - 1] + 1);
 	if (scale > 1) {
 		*this *= (big_integer)scale;
-		digits.resize(digits.size() + 1);
 		saverhs *= (big_integer)scale;
 	}
+	digits.resize(digits.size() + 1);
 	for (vJ = m, uJ = n + vJ; vJ >= 0; --vJ, --uJ) {
 		ansGuess = (digits[uJ] * BASE + digits[uJ - 1]) / saverhs.digits[n - 1];
 		r = (digits[uJ] * BASE + digits[uJ - 1]) % saverhs.digits[n - 1];
@@ -271,8 +270,8 @@ big_integer& big_integer::operator /= (big_integer const& rhs)
 			}
 			digits[vJ + i] = (uint32_t)(digits[vJ + i] + carry - BASE);
 		}
-		clear();
 	}
+	clear();
 	ans.clear();
 	return *this = ans;
 }
