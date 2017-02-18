@@ -149,7 +149,9 @@ void my_vector::pop_back()
 	if (!is_small()) {
 		if ((*vec)->size() == 2) {
 			--elements;
+			std::shared_ptr<std::vector<uint32_t>>* buf = vec;
 			digit = (*vec)->at(0);
+			delete buf;
 		}
 		else {
 			copy();
