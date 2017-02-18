@@ -22,7 +22,6 @@ struct my_vector
 
 private:
 
-	const size_t MANY = 2;
 	size_t elements;
 	union {
 		uint32_t digit;
