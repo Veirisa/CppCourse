@@ -1,6 +1,8 @@
 #include "my_vector.h"
 #include <algorithm>
 
+const size_t MANY = 2;
+
 bool my_vector::is_small() const
 {
 	return elements <= 1;
