@@ -147,8 +147,14 @@ void my_vector::push_back(uint32_t x)
 void my_vector::pop_back()
 {
 	if (!is_small()) {
-		copy();
-		(*vec)->pop_back();
+		if ((*vec)->size() == 2) {
+			--elements;
+			digit = (*vec)->at(0);
+		}
+		else {
+			copy();
+			(*vec)->pop_back();
+		}
 	}
 	else {
 		--elements;
