@@ -32,4 +32,3 @@ private:
 };
 
 #endif //MY_VECTOR_H
-

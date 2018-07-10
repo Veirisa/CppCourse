@@ -27,7 +27,8 @@ big_integer::big_integer(int a)
 	}
 }
 
-big_integer::big_integer(uint64_t a) {
+big_integer::big_integer(uint64_t a)
+{
 	sign = 1;
 	digits.push_back((uint32_t)a);
 	digits.push_back(a >> LENGTH);
@@ -54,7 +55,8 @@ big_integer::big_integer(std::string const& str)
 big_integer::~big_integer()
 {}
 
-void big_integer::clear() {
+void big_integer::clear()
+{
 	while (digits.size() > 1 && !digits.back()) {
 		digits.pop_back();
 	}
@@ -171,10 +173,10 @@ big_integer& big_integer::operator*=(big_integer const& rhs)
 	ans.clear();
 	*this = ans;
 	return *this;
-
 }
 
-void div(big_integer& left, uint32_t v) {
+void div(big_integer& left, uint32_t v)
+{
 	if (left.sign == 0) {
 		return;
 	}
